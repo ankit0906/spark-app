@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-container
-          image: nginx:latest
+          image: ankitdockerhub1/scala:v3
           ports:
             - containerPort: 80
 
