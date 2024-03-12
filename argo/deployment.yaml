@@ -15,7 +15,7 @@ spec:
       containers:
         - name: my-app
           image: myspark:commit_sha_here
-          imagePullPolicy:"Always"
+          imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
 
