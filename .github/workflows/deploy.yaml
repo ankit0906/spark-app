@@ -32,13 +32,13 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/myspark:{{ steps.commit_id.outputs.commit_id }}
+          tags: ankitdockerhub1/myspark:{{ steps.commit_id.outputs.commit_id }}
           
 
       - name: Update manifests file
         run: |
           COMMIT_ID=$(git rev-parse --short HEAD)
-          sed -i "s|image: ${{ secrets.DOCKER_USERNAME }}/myspark:[^ ]*|image: ${{ secrets.DOCKER_USERNAME }}myspark:${COMMIT_ID}|g" /argo/deployment.yaml
+          sed -i "s|image: ankitdockerhub1/myspark:[^ ]*|image: ankitdockerhub1/myspark:${COMMIT_ID}|g" /argo/deployment.yaml
 
     
 
