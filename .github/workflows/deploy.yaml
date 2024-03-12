@@ -20,6 +20,7 @@ jobs:
         run: |
           commit_id=$(git rev-parse --short HEAD)
           docker build -t myspark:${commit_id} .
+          docker tag ankitdockerhub1/myspark:${commit_id}
           echo "::set-output name=commit_id::myspark:${commit_id}"
 
 
@@ -35,7 +36,7 @@ jobs:
 
       - name: Update manifests file
         run: |
-          sed -i "s+myspark:latest+myspark:${commit_sha}+g" ./argo/deployment.yaml
+          sed -i "s+myspark:latest+myspark:${commit_id}+g" ./argo/deployment.yaml
 
     
 
