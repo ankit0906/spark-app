@@ -44,12 +44,5 @@ jobs:
 
     
 
-      - name: Commit and push changes
-        if: steps.commit_id.outputs.commit_id != null
-        run: |
-          git config --global user.email "kothawadeankit90@gmail.com"
-          git config --global user.name "ankit0906"
-          git add argo/deployment.yaml 
-          git commit -m "Update the Docker image tag and latest commit ID"
-          git push
+      
 
