@@ -40,8 +40,7 @@ jobs:
 
       - name: Update manifests file
         run: |
-          COMMIT_ID=$(git rev-parse --short HEAD)
-          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${COMMIT_ID}|g" argo/deployment.yaml
+          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${commit_id}|g" argo/deployment.yaml
 
     
 
