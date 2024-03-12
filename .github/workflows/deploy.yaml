@@ -33,6 +33,9 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ankitdockerhub1/myspark:{{ steps.commit_id.outputs.commit_id }}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           
 
       - name: Update manifests file
