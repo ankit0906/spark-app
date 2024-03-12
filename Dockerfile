@@ -9,8 +9,10 @@ RUN curl -O https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-ha
 # Set the working directory
 WORKDIR /app
 # Copy the Scala source file into the container
-COPY Ankit.scala /app
+COPY my-app/Ankit.scala /app
 # Compile the Scala source file to generate the class files
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
 
-RUN scala Ankit
+
+
+CMD ["sleep", "infinity"]

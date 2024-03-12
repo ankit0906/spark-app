@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: your-app-deployment
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: my-app
@@ -13,8 +13,8 @@ spec:
         app: my-app
     spec:
       containers:
-        - name: my-container
-          image: ankitdockerhub1/scala:v3
+        - name: my-app
+          image: myspark:commit_sha_here
           ports:
-            - containerPort: 80
+            - containerPort: 8080
 
