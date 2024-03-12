@@ -24,7 +24,7 @@ jobs:
 
       - name: Update manifests file
         run: |
-          sed -i "s+myspark:latest+myspark:${commit_sha}+g" deployment.yaml
+          sed -i "s+myspark:latest+myspark:${commit_sha}+g" /argo/deployment.yaml
           echo "${commit_sha}" > latest_commit.txt
 
       - name: Login to Docker Hub
