@@ -8,11 +8,14 @@ spec:
   source:
     repoURL: https://github.com/ankit0906/spark-app.git
     targetRevision: HEAD
-    path: argo/deployment.yaml
+    path: argo
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: newapp
   syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
     automated:
       prune: true
       selfHeal: true
