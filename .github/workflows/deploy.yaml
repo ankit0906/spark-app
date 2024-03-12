@@ -19,7 +19,7 @@ jobs:
       - name: Build Docker image
         run: |
           commit_sha=$(git rev-parse --short HEAD)
-          docker build -t myspark:${commit_sha} ./Dockerfile
+          docker build -t myspark:${commit_sha} .
           echo "::set-output name=image-tag::myspark:${commit_sha}"
 
       - name: Login to Docker Hub
