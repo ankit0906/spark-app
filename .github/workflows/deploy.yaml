@@ -22,6 +22,11 @@ jobs:
           docker build -t myspark:${commit_sha} .
           echo "::set-output name=image-tag::myspark:${commit_sha}"
 
+      - name: Update manifests file
+        run: |
+          sed -i "s+myspark:latest+myspark:${commit_sha}+g" deployment.yaml
+          echo "${commit_sha}" > latest_commit.txt
+
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -32,10 +37,7 @@ jobs:
         run: |
           docker push myspark:${commit_sha}
 
-      - name: Update manifests file
-        run: |
-          sed -i "s+myspark:latest+myspark:${commit_sha}+g" deployment.yaml
-          echo "${commit_sha}" > latest_commit.txt
+    
 
       - name: Commit and push changes
         run: |
