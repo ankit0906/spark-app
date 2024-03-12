@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: myspark:commit_sha_here
+          image: ankitdockerhub1/images:qasde7
           imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
