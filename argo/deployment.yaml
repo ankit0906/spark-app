@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app
+  annotations:
+    argocd-image-listen: '{"image": "ankitdockerhub1/images", "tag": "latest"}'
 spec:
   replicas: 1
   selector:
@@ -14,7 +16,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: ankitdockerhub1/images:
+          image: ankitdockerhub1/images:latest
           imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
