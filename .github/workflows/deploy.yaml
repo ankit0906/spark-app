@@ -41,7 +41,11 @@ jobs:
       - name: Update manifests file
         run: |
           sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${commit_id}|g" argo/deployment.yaml
-
+          git config --global user.name "ankit0906"
+          git config --global user.email "kothawadeankit90@gmail.com"
+          git add .
+          git commit -m "added new feature"
+          git push 
     
 
       
