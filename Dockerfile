@@ -12,7 +12,4 @@ WORKDIR /app
 COPY my-app/Ankit.scala /app
 # Compile the Scala source file to generate the class files
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
-
-
-
-CMD ["sleep", "infinity"]
+RUN scala Ankit
