@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: my-app
-          image: ankitdockerhub1/images:9997429
+          image: ankitdockerhub1/images:57bb031
           imagePullPolicy: "Always"
           ports:
             - containerPort: 8080
