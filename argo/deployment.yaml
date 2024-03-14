@@ -2,8 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-app
-  annotations:
-    argocd-image-listen: '{"image": "ankitdockerhub1/images", "tag": "latest"}'
+ 
 spec:
   replicas: 1
   selector:
