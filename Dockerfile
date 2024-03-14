@@ -13,5 +13,6 @@ COPY Ankit.scala /app
 
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
 RUN scala Ankit
+CMD ["scala", "-classpath", "$(find /usr/local/spark -name '*jar' | tr '\n' ':')", "Ankit"]
 
 
