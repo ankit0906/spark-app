@@ -6,7 +6,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/ankit0906/spark-app.git
-    targetRevision: HEAD
+    targetRevision: master
     path: argo
   destination:
     server: 'https://kubernetes.default.svc'
@@ -14,28 +14,4 @@ spec:
   syncPolicy:
     automated: true
     prune: true
-    syncOptions:
-      - CreateNamespace=true
-      - Validate=false
-  hooks:
-    - name: auto-sync
-      command: [argocd-image-updater]
-      source:
-        resource:
-          apiVersion: argoproj.io/v1alpha1
-          kind: Application
-          metadata:
-            name: ankit-app
-            namespace: default
-          hook: Sync
-      destination:
-        resource:
-          apiVersion: argoproj.io/v1alpha1
-          kind: Application
-          metadata:
-            name: ankit-app
-            namespace: default
-      runOn:
-        change: true
-      when:
-        annotationSelector: argocd-image-listen
+    
