@@ -46,7 +46,7 @@ jobs:
         
       - name: Update manifests file 
         run: |
-          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ env.COMMIT_ID}|g" argo/deployment.yaml
+          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ env.COMMIT_ID }}|g" argo/deployment.yaml
 
       - name: push changes to master
         run: |    
