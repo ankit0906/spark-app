@@ -36,7 +36,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ankitdockerhub1/images:${{ $GITHUB_ENV }}
+          tags: ankitdockerhub1/images:${{ GITHUB_ENV }}
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
@@ -50,7 +50,7 @@ jobs:
         
         run: |
           
-          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ $GITHUB_ENV}|g" argo/deployment.yaml
+          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ GITHUB_ENV}|g" argo/deployment.yaml
 
       - name: push changes to master
         run: |    
