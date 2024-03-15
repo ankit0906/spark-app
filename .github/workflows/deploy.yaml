@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Set Commit ID
         id: set_commit_id
-        run: echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
+        run: echo "COMMIT_ID=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
         
   build-and-deploy:
     needs: set_commit_id
