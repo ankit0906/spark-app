@@ -36,7 +36,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ankitdockerhub1/images:${{ GITHUB_ENV }}
+          tags: ankitdockerhub1/images:${{$GITHUB_SHA_SHORT }}
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
