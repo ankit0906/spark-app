@@ -39,28 +39,28 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          ref: master
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+      #   with:
+      #     ref: master
           
-      - name: get commit id
-        id: COMMIT_ID
-        run: echo "::set-output name=COMMIT_ID::$(git rev-parse --short HEAD)"
+      # - name: get commit id
+      #   id: COMMIT_ID
+      #   run: echo "::set-output name=COMMIT_ID::$(git rev-parse --short HEAD)"
         
-      - name: Update manifests file 
+      # - name: Update manifests file 
         
-        run: |
+      #   run: |
           
-          sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ steps.COMMIT_ID.outputs.COMMIT_ID}}|g" argo/deployment.yaml
+      #     sed -i "s|image: ankitdockerhub1/images:[^ ]*|image: ankitdockerhub1/images:${{ steps.COMMIT_ID.outputs.COMMIT_ID}}|g" argo/deployment.yaml
 
-      - name: push changes to master
-        run: |    
-          git config --global user.name "ankit0906"
-          git config --global user.email "kothawadeankit90@gmail.com"
-          git add argo/deployment.yaml
-          git commit -m "added new feature"
-          git push origin master
+      # - name: push changes to master
+      #   run: |    
+      #     git config --global user.name "ankit0906"
+      #     git config --global user.email "kothawadeankit90@gmail.com"
+      #     git add argo/deployment.yaml
+      #     git commit -m "added new feature"
+      #     git push origin master
     
 
      
