@@ -17,6 +17,7 @@ jobs:
         run: echo "COMMIT_ID=$(git rev-parse HEAD)" >> $GITHUB_ENV
         
   build-and-deploy:
+    needs: set_commit_id
     runs-on: ubuntu-latest
     
     steps:
