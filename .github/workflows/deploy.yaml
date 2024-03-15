@@ -48,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ankitdockerhub1/images:${COMMIT_ID}
+          tags: "ankitdockerhub1/images:${COMMIT_ID}"
         
           
       - name: Checkout code
