@@ -12,9 +12,9 @@ WORKDIR /app
 COPY Ankit.scala /app
 
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
-RUN scala Ankit
-CMD ["scala", "-classpath", "/app", "Ankit"]
-CMD [ "sleep" "infinity" ]
+
+CMD ["scala", "-classpath", "/app:/usr/local/spark/jars/*", "Ankit"]
+
 
 
 
