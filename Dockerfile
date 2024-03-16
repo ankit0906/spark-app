@@ -9,6 +9,8 @@ RUN curl -O https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-ha
 
 WORKDIR /app
 
+USER root
+
 COPY Ankit.scala /app
 
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
