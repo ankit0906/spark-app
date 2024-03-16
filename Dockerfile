@@ -15,6 +15,8 @@ COPY Ankit.scala /app
 
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
 
+RUN scala Ankit
+
 CMD ["tail", "-f", "/dev/null"]
 
 
