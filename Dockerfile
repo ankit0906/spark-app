@@ -9,17 +9,11 @@ RUN curl -O https://archive.apache.org/dist/spark/spark-3.2.0/spark-3.2.0-bin-ha
 
 WORKDIR /app
 
-USER root
-
 COPY Ankit.scala /app
+COPY entrypoint.sh /app/entrypoint.sh
 
 RUN scalac -classpath "$(find /usr/local/spark -name '*jar' | tr '\n' ':')" Ankit.scala
 
-RUN scala Ankit
+RUN chmod +x /app/entrypoint.sh
 
-CMD ["tail", "-f", "/dev/null"]
-
-
-
-
-
+ENTRYPOINT ["/app/entrypoint.sh"]
