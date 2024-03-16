@@ -17,25 +17,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - Validate=false
-  hooks:
-    - name: auto-sync
-      command: [argocd-image-updater]
-      source:
-        resource:
-          apiVersion: argoproj.io/v1alpha1
-          kind: Application
-          metadata:
-            name: ankit-app
-            namespace: default
-          hook: Sync
-      destination:
-        resource:
-          apiVersion: argoproj.io/v1alpha1
-          kind: Application
-          metadata:
-            name: ankit-app
-            namespace: default
-      runOn:
-        change: true
-      when:
-        annotationSelector: argocd-image-listen
+  
